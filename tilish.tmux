@@ -159,11 +159,13 @@ bind_layout "${mod}t" 'tiled'
 bind_layout "${mod}z" 'zoom'
 
 # Refresh the current layout (e.g. after deleting a pane).
+# CUSTOM Calvin: disabling this key binding because conflicting with neovim
+# CUSTOM Calvin: mapping to ALT+Shift+r
 if [ -z "$legacy" ]
 then
-	tmux $bind "${mod}r" select-layout -E
+	tmux $bind "${mod}R" select-layout -E
 else
-	tmux $bind "${mod}r" run-shell 'tmux select-layout'\\\; send escape
+	tmux $bind "${mod}R" run-shell 'tmux select-layout'\\\; send escape
 fi
 
 # Switch to pane via Alt + hjkl.
